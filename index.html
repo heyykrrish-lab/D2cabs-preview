@@ -7470,7 +7470,159 @@ html,body{margin:0!important;padding:0!important;}
   font-size:.77rem!important;
 }
 </style>
-</head>
+<style id="faq-category-boxes">
+.faq-category-strip{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:10px !important;
+  margin:0 0 18px !important;
+  padding:0 !important;
+}
+.faq-cat{
+  min-height:54px !important;
+  border:1.5px solid #dbe5ec !important;
+  border-radius:16px !important;
+  background:#f5f8fb !important;
+  color:#123a5c !important;
+  font:800 15px/1.1 inherit !important;
+  padding:8px 6px !important;
+  cursor:pointer !important;
+  box-shadow:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+}
+.faq-cat.active{
+  background:#dceefb !important;
+  border-color:#dceefb !important;
+  color:#123a5c !important;
+}
+.faq-cat:active{transform:scale(.98);}
+.d2-faq details.faq-hidden{display:none !important;}
+@media (max-width:380px){
+  .faq-category-strip{gap:7px !important;}
+  .faq-cat{font-size:13px !important; min-height:50px !important;}
+}
+</style>
+<style id="faq-category-box-final">
+/* Four category boxes — same compact style, with D2Cabs theme.
+   Keep the rounded corners subtle and limit the treatment to this strip. */
+.faq-category-strip{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:10px !important;
+  margin:0 0 18px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+}
+.faq-cat{
+  min-height:58px !important;
+  height:58px !important;
+  padding:8px 7px !important;
+  border:1.5px solid #dbe5ec !important;
+  border-radius:14px !important;
+  background:#f5f8fb !important;
+  color:#123a5c !important;
+  font:800 15px/1.1 inherit !important;
+  box-shadow:none !important;
+}
+.faq-cat.active{
+  background:#dceefb !important;
+  border-color:#dceefb !important;
+  color:#123a5c !important;
+}
+.faq-cat:active{transform:scale(.98) !important}
+
+/* Do not let category-box styling spill across the page. */
+.faq-main .faq-category-strip{width:100% !important}
+@media(max-width:600px){
+  .faq-category-strip{gap:8px !important}
+  .faq-cat{min-height:56px !important;height:56px !important;font-size:14px !important}
+}
+@media(max-width:380px){
+  .faq-category-strip{gap:6px !important}
+  .faq-cat{font-size:12.5px !important;border-radius:12px !important}
+}
+</style>
+<style id="faq-category-theme-match">
+/* Category tabs: match the existing D2Cabs FAQ palette and proportions */
+.faq-category-strip{
+  grid-template-columns:repeat(4,1fr) !important;
+  gap:8px !important;
+  margin:0 0 16px !important;
+}
+.faq-cat{
+  min-height:48px !important;
+  height:48px !important;
+  padding:6px 5px !important;
+  border:1px solid #e4e9ef !important;
+  border-radius:10px !important;
+  background:#f5f7fa !important;
+  color:#5b7285 !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+  letter-spacing:0 !important;
+}
+.faq-cat.active{
+  background:#dceefb !important;
+  border-color:#dceefb !important;
+  color:#123a5c !important;
+}
+@media(max-width:380px){
+  .faq-category-strip{gap:6px !important}
+  .faq-cat{
+    min-height:46px !important;
+    height:46px !important;
+    font-size:12px !important;
+    border-radius:9px !important;
+  }
+}
+</style>
+<style id="faq-category-navy-active">
+.faq-category-strip{
+  gap:8px !important;
+  margin-bottom:16px !important;
+}
+.faq-cat{
+  min-height:42px !important;
+  height:42px !important;
+  padding:4px 5px !important;
+  border:1px solid #e4e9ef !important;
+  border-radius:9px !important;
+  background:#f5f7fa !important;
+  color:#5b7285 !important;
+  font-size:12.5px !important;
+  line-height:1 !important;
+}
+.faq-cat.active{
+  background:#123a5c !important;
+  border-color:#123a5c !important;
+  color:#fff !important;
+}
+@media(max-width:380px){
+  .faq-category-strip{gap:6px !important}
+  .faq-cat{
+    min-height:40px !important;
+    height:40px !important;
+    padding:3px 4px !important;
+    font-size:11.5px !important;
+  }
+}
+</style>
+<style id="faq-final-last-two-fixes">
+/* Final polish: header matches page background */
+.faq-header{background:#f6f6f5!important;background-image:linear-gradient(180deg,#fafafa 0%,#f3f4f4 100%)!important;}
+/* Final polish: make all four FAQ tabs' outlines clearly visible */
+.faq-category-strip .faq-cat{border:1px solid #C9D1D8!important;}
+.faq-category-strip .faq-cat.active{border-color:#123A5C!important;}
+/* Correct Book CTA text size without changing its button dimensions */
+.faq-header-cta-right{font-size:.88rem!important;line-height:1!important;}
+</style>
+<style id="faq-tabs-final-working">
+.d2-faq details{display:none !important;}
+.d2-faq details[data-cat="booking"]{display:block !important;}
+.faq-category-strip,.faq-category-strip .faq-cat{position:relative !important;z-index:50 !important;pointer-events:auto !important;}
+.faq-category-strip .faq-cat{cursor:pointer !important;touch-action:manipulation !important;}
+</style></head>
 <body>
 <div class="phone">
 <header aria-label="D2Cabs header" class="faq-header">
@@ -8333,7 +8485,47 @@ html,body{margin:0!important;padding:0!important;}
 <span>Get driver details<br/>and enjoy your<br/>ride</span>
 </div>
 </div>
-</section><section aria-labelledby="reviewHeading" class="d2-section"><div class="d2-review-stage"><h2 class="d2-review-title" id="reviewHeading">Loved By Our Riders</h2><div class="d2-flow-viewport"> <article class="d2-flow-card pos-center"><span class="d2-avatar">RK</span><div class="d2-review-stars">★★★★★</div><p>Excellent service! The driver was on time and the car was extremely clean.</p><b>Rahul K.</b></article><article class="d2-flow-card pos-right"><span class="d2-avatar">PS</span><div class="d2-review-stars">★★★★★</div><p>Very comfortable ride and super polite driver. Highly recommend!</p><b>Priya S.</b></article><article class="d2-flow-card pos-far-right"><span class="d2-avatar">AJ</span><div class="d2-review-stars">★★★★★</div><p>Smooth booking experience and on-time pickup. Will definitely book again.</p><b>Aman J.</b></article><article class="d2-flow-card pos-hidden"><span class="d2-avatar">NM</span><div class="d2-review-stars">★★★★★</div><p>Clean cab, clear pricing and a safe journey with my family.</p><b>Neha M.</b></article><article class="d2-flow-card pos-far-left"><span class="d2-avatar">VS</span><div class="d2-review-stars">★★★★★</div><p>Airport pickup was perfectly on time, even for our early flight.</p><b>Vikas S.</b></article><article class="d2-flow-card pos-left"><span class="d2-avatar">PD</span><div class="d2-review-stars">★★★★★</div><p>Quick support and a courteous driver made the trip completely stress-free.</p><b>Pooja D.</b></article> </div><div aria-label="Choose testimonial" class="d2-flow-dots"><span aria-label="Show testimonial 1" class="active" role="button" tabindex="0"></span><span aria-label="Show testimonial 2" role="button" tabindex="0"></span><span aria-label="Show testimonial 3" role="button" tabindex="0"></span><span aria-label="Show testimonial 4" role="button" tabindex="0"></span><span aria-label="Show testimonial 5" role="button" tabindex="0"></span><span aria-label="Show testimonial 6" role="button" tabindex="0"></span></div></div></section> <section aria-labelledby="faqHeading" class="d2-section"><h2 class="d2-heading" id="faqHeading"><span>Frequently Asked Questions</span></h2><div class="d2-panel d2-faq"> <details><summary>Can I book a ride in advance?</summary><p>Yes. Select your future date and time in the booking form and submit your request.</p></details><details><summary>Are drivers verified?</summary><p>Yes. D2cabs works with verified, experienced drivers and shares cab details before departure.</p></details><details><summary>Is airport pickup available at night?</summary><p>Yes, airport transfer requests are accepted 24/7, subject to cab availability.</p></details><details><summary>What payment options are available?</summary><p>You can complete payment securely using the options shown after your booking is accepted.</p></details> <details><summary>Can I modify my booking after confirmation?</summary><p>Yes. Contact D2cabs support as early as possible and we will help you with available changes.</p></details></div></section> <section class="d2-section d2-final"><h3>Ready for your next ride?</h3><p>Tell us where you are going and we will help you find the right cab.</p><button data-service="outstation" type="button">Book Your Cab</button></section> <footer class="d2-footer">
+</section><section aria-labelledby="reviewHeading" class="d2-section"><div class="d2-review-stage"><h2 class="d2-review-title" id="reviewHeading">Loved By Our Riders</h2><div class="d2-flow-viewport"> <article class="d2-flow-card pos-center"><span class="d2-avatar">RK</span><div class="d2-review-stars">★★★★★</div><p>Excellent service! The driver was on time and the car was extremely clean.</p><b>Rahul K.</b></article><article class="d2-flow-card pos-right"><span class="d2-avatar">PS</span><div class="d2-review-stars">★★★★★</div><p>Very comfortable ride and super polite driver. Highly recommend!</p><b>Priya S.</b></article><article class="d2-flow-card pos-far-right"><span class="d2-avatar">AJ</span><div class="d2-review-stars">★★★★★</div><p>Smooth booking experience and on-time pickup. Will definitely book again.</p><b>Aman J.</b></article><article class="d2-flow-card pos-hidden"><span class="d2-avatar">NM</span><div class="d2-review-stars">★★★★★</div><p>Clean cab, clear pricing and a safe journey with my family.</p><b>Neha M.</b></article><article class="d2-flow-card pos-far-left"><span class="d2-avatar">VS</span><div class="d2-review-stars">★★★★★</div><p>Airport pickup was perfectly on time, even for our early flight.</p><b>Vikas S.</b></article><article class="d2-flow-card pos-left"><span class="d2-avatar">PD</span><div class="d2-review-stars">★★★★★</div><p>Quick support and a courteous driver made the trip completely stress-free.</p><b>Pooja D.</b></article> </div><div aria-label="Choose testimonial" class="d2-flow-dots"><span aria-label="Show testimonial 1" class="active" role="button" tabindex="0"></span><span aria-label="Show testimonial 2" role="button" tabindex="0"></span><span aria-label="Show testimonial 3" role="button" tabindex="0"></span><span aria-label="Show testimonial 4" role="button" tabindex="0"></span><span aria-label="Show testimonial 5" role="button" tabindex="0"></span><span aria-label="Show testimonial 6" role="button" tabindex="0"></span></div></div></section> <section aria-labelledby="faqHeading" class="d2-section"><h2 class="d2-heading" id="faqHeading"><span>Frequently Asked Questions</span></h2>
+<div aria-label="FAQ categories" class="faq-category-strip" role="tablist">
+<button aria-selected="true" class="faq-cat active" data-filter="booking" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('booking')">Booking</button>
+<button aria-selected="false" class="faq-cat" data-filter="service" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('service')">Services</button>
+<button aria-selected="false" class="faq-cat" data-filter="ride" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('ride')">Your Ride</button>
+<button aria-selected="false" class="faq-cat" data-filter="payment" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('payment')">Payment</button>
+</div>
+<div class="d2-panel d2-faq">
+<details data-cat="service"><summary>What cab services does D2cabs offer?</summary><p>D2cabs provides convenient cab services for local rides, airport transfers and outstation travel.</p></details>
+<details data-cat="service"><summary>Do you provide local city rides?</summary><p>Yes. You can request a cab for local travel within the city based on cab availability.</p></details>
+<details data-cat="service"><summary>Do you provide airport transfers?</summary><p>Yes. Airport pickup and drop requests are available, including night transfers, subject to cab availability.</p></details>
+<details data-cat="service"><summary>Can I book an outstation cab?</summary><p>Yes. Share your route and travel schedule with D2cabs to check available outstation cab options.</p></details>
+<details data-cat="service"><summary>Do you offer one-way cab service?</summary><p>Yes. You can request a one-way trip when submitting your booking details.</p></details>
+<details data-cat="service"><summary>Do you offer round-trip cab service?</summary><p>Yes. Round-trip requests can be made by selecting the trip type that matches your travel requirement.</p></details>
+<details data-cat="service"><summary>Can I choose my pickup location?</summary><p>Yes. Enter the exact pickup point along with a useful landmark or location note in your booking.</p></details>
+<details data-cat="service"><summary>Are airport transfers available 24/7?</summary><p>Yes. Airport transfer requests are accepted 24/7, subject to cab availability.</p></details>
+<details data-cat="booking"><summary>Can I book a ride in advance?</summary><p>Yes. Select your future date and time in the booking form and submit your request.</p></details>
+<details data-cat="booking"><summary>How do I confirm my booking?</summary><p>Submit your booking request with the required trip details and wait for confirmation from D2cabs.</p></details>
+<details data-cat="booking"><summary>Can I modify my booking after confirmation?</summary><p>Yes. Contact D2cabs support as early as possible and we will help you with available changes.</p></details>
+<details data-cat="booking"><summary>Can I cancel my booking?</summary><p>Yes. Contact D2cabs support as soon as possible to request cancellation and check the applicable terms.</p></details>
+<details data-cat="booking"><summary>What details are needed to book a cab?</summary><p>You will need your pickup location, destination, travel date and time, and basic contact details.</p></details>
+<details data-cat="booking"><summary>Can I book a cab for someone else?</summary><p>Yes. Provide the passenger's correct contact and pickup details while making the booking.</p></details>
+<details data-cat="booking"><summary>Can I book a one-way or round trip?</summary><p>Yes. Choose the trip type that matches your travel requirement while submitting the booking request.</p></details>
+<details data-cat="booking"><summary>Can I request an outstation cab?</summary><p>Yes. Share your route and travel schedule with D2cabs to check available outstation cab options.</p></details>
+<details data-cat="ride"><summary>Are drivers verified?</summary><p>Yes. D2cabs works with verified, experienced drivers and shares cab details before departure.</p></details>
+<details data-cat="ride"><summary>Is airport pickup available at night?</summary><p>Yes, airport transfer requests are accepted 24/7, subject to cab availability.</p></details>
+<details data-cat="ride"><summary>How will I receive my cab details?</summary><p>Cab and driver details are shared before departure once your ride is confirmed.</p></details>
+<details data-cat="ride"><summary>Can I track my cab?</summary><p>Ride tracking or driver updates depend on the booking and available service features.</p></details>
+<details data-cat="ride"><summary>Can I request a specific pickup point?</summary><p>Yes. Enter the exact pickup point and any useful landmark or location note in your booking.</p></details>
+<details data-cat="ride"><summary>Can I carry luggage in the cab?</summary><p>Yes. Normal travel luggage is allowed, subject to the available space in the selected cab.</p></details>
+<details data-cat="ride"><summary>What if my driver is delayed?</summary><p>Contact D2cabs support if your driver is delayed so we can help with the ride status.</p></details>
+<details data-cat="ride"><summary>What should I do if I cannot find my cab?</summary><p>Check the shared driver details and contact D2cabs support for assistance with the pickup.</p></details>
+<details data-cat="payment"><summary>What payment options are available?</summary><p>You can complete payment securely using the options shown after your booking is accepted.</p></details>
+<details data-cat="payment"><summary>Do I need to pay in advance?</summary><p>Payment requirements can vary by booking. Follow the payment instructions shown after your booking is accepted.</p></details>
+<details data-cat="payment"><summary>Can I pay in cash?</summary><p>Cash availability depends on the ride and payment options offered for your confirmed booking.</p></details>
+<details data-cat="payment"><summary>Is online payment secure?</summary><p>Yes. Use the secure payment option presented for your booking and avoid sharing payment credentials with anyone.</p></details>
+<details data-cat="payment"><summary>Will I receive a payment confirmation?</summary><p>Payment confirmation is provided according to the payment method used for your booking.</p></details>
+<details data-cat="payment"><summary>What if I am charged the wrong amount?</summary><p>Contact D2cabs support with your booking and payment details so the amount can be reviewed.</p></details>
+<details data-cat="payment"><summary>Are cancellation charges applicable?</summary><p>Cancellation charges, if any, depend on the booking terms applicable to your ride.</p></details>
+<details data-cat="payment"><summary>How can I ask about a refund?</summary><p>Contact D2cabs support with your booking details and we will guide you through the applicable refund process.</p></details>
+</div></section>  <section class="d2-section d2-final"><h3>Ready for your next ride?</h3><p>Tell us where you are going and we will help you find the right cab.</p><button data-service="outstation" type="button">Book Your Cab</button></section> <footer class="d2-footer">
 <img alt="D2cabs logo" class="d2-footer-logo-mark" src="images/img_053.png"/>
 <div class="d2-footer-brand">D2cabs</div>
 <div class="d2-footer-contact">
@@ -11062,6 +11254,53 @@ html,body{overflow-y:visible!important;}
 })();
 </script>
 
+<style id="faq-tabs-final-working">
+.d2-faq details{display:none !important;}
+.d2-faq details[data-cat="booking"]{display:block !important;}
+.faq-category-strip,.faq-category-strip .faq-cat{position:relative !important;z-index:50 !important;pointer-events:auto !important;}
+.faq-category-strip .faq-cat{cursor:pointer !important;touch-action:manipulation !important;}
+</style>
+<script id="faq-tabs-final-working-js">
+function d2FaqFilter(filter){
+  var buttons=document.querySelectorAll('.faq-category-strip .faq-cat');
+  var items=document.querySelectorAll('.d2-faq details[data-cat]');
+  buttons.forEach(function(btn){
+    var active=btn.getAttribute('data-filter')===filter;
+    btn.classList.toggle('active',active);
+    btn.setAttribute('aria-selected',active?'true':'false');
+  });
+  items.forEach(function(item){
+    var show=item.getAttribute('data-cat')===filter;
+    item.hidden=!show;
+    item.classList.toggle('faq-hidden',!show);
+    item.style.setProperty('display',show?'block':'none','important');
+    if(!show) item.open=false;
+  });
+}
+document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');});
+</script>
+<script id="d2-faq-tabs-final">
+(function(){
+  function filterFaq(category){
+    var buttons=document.querySelectorAll('.faq-cat');
+    var items=document.querySelectorAll('.d2-faq details');
+    for(var i=0;i<buttons.length;i++){
+      var b=buttons[i], active=b.getAttribute('data-filter')===category;
+      b.classList.toggle('active',active);
+      b.setAttribute('aria-selected',active?'true':'false');
+    }
+    for(var j=0;j<items.length;j++){
+      var item=items[j], show=item.getAttribute('data-cat')===category;
+      item.hidden=!show;
+      item.style.setProperty('display', show?'block':'none', 'important');
+      if(!show) item.removeAttribute('open');
+    }
+  }
+  window.d2FaqFilter=filterFaq;
+  function init(){ filterFaq('booking'); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
 </body>
 <style id="d2-footer-logo-final">
 #d2Homepage .d2-footer-logo-mark{display:block;width:78px;height:auto;margin:0 auto 10px;object-fit:contain}

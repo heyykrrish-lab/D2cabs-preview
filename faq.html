@@ -1270,7 +1270,7 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
     for(var j=0;j<items.length;j++){
       var item=items[j], show=item.getAttribute('data-cat')===category;
       item.hidden=!show;
-      item.style.display=show?'':'none';
+      item.style.setProperty('display', show?'block':'none', 'important');
       if(!show) item.removeAttribute('open');
     }
   }
