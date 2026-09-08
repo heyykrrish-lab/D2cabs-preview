@@ -1451,6 +1451,69 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
   .need-help-icon{border-width:4px!important;}
 }
 </style>
+<style id="d2-nav-menu-toggle-styles">
+.faq-header-nav.d2-menu-open{
+  display:flex!important;
+  position:absolute!important;
+  top:100%!important;
+  left:12px!important;
+  right:12px!important;
+  z-index:999!important;
+  background:#fff!important;
+  border:1px solid #E4E9EF!important;
+  border-radius:14px!important;
+  box-shadow:0 12px 28px rgba(18,58,92,.16)!important;
+  padding:10px!important;
+  flex-direction:column!important;
+  gap:2px!important;
+}
+.faq-header-nav.d2-menu-open a{
+  display:block!important;
+  padding:12px 14px!important;
+  font-size:.85rem!important;
+  font-weight:700!important;
+  color:#123A5C!important;
+  border-radius:9px!important;
+  text-decoration:none!important;
+}
+.faq-header-nav.d2-menu-open a:active{background:#F5F7FA!important;}
+.faq-header{position:relative!important;}
+</style>
+<script id="d2-nav-menu-toggle-script">
+(function(){
+  function initMenu(){
+    var btn = document.querySelector('.faq-header-menu');
+    var nav = document.querySelector('.faq-header-nav');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = nav.classList.toggle('d2-menu-open');
+      nav.hidden = !isOpen;
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if(nav.classList.contains('d2-menu-open') && !nav.contains(e.target) && e.target !== btn){
+        nav.classList.remove('d2-menu-open');
+        nav.hidden = true;
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('d2-menu-open');
+        nav.hidden = true;
+        btn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initMenu);
+  } else {
+    initMenu();
+  }
+})();
+</script>
+
 </body>
 <style id="get-in-touch-card-final-spacing-gradient">
 .need-help-card{
