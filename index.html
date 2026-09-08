@@ -2417,7 +2417,7 @@
   @media(prefers-reduced-motion:reduce){ *,*::before,*::after{ scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; } }
 </style>
 <style id="d2-mobile-centre-fix">
-html,body{width:100%;max-width:100%;overflow-x:hidden;}
+html,body{width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible;}
 body{display:block!important;padding:12px 0 24px!important;}
 .phone{display:block!important;width:min(100%,430px)!important;max-width:430px!important;margin:0 auto!important;padding:0!important;position:relative;left:auto!important;right:auto!important;transform:none!important;}
 .phone>.card{width:auto!important;max-width:none!important;margin-left:10px!important;margin-right:10px!important;}
@@ -7483,7 +7483,7 @@ html,body{margin:0!important;padding:0!important;}
 </a>
 <a aria-label="Book Now" class="faq-header-cta-right" href="#homeScreen">Book</a>
 <nav aria-label="Primary navigation" class="faq-header-nav" hidden="">
-<a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="contact.html#needHelpTitle">Support</a>
+<a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
 </nav>
 </header>
 
@@ -8767,7 +8767,7 @@ html,body{margin:0!important;padding:0!important;}
     dtDateDisplay.textContent = `${String(d.getDate()).padStart(2,'0')} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
 
     let h24 = now.getHours();
-    let minute = Math.round(now.getMinutes()/5)*5;
+    let minute = Math.ceil(now.getMinutes()/5)*5;
     if(minute === 60){ minute = 0; h24 = (h24+1)%24; }
     const period = h24 >= 12 ? 'PM' : 'AM';
     let hour12 = h24 % 12;
@@ -9235,6 +9235,12 @@ html,body{margin:0!important;padding:0!important;}
     });
     const marketingSections = document.getElementById('d2Homepage');
     if(marketingSections) marketingSections.style.display = (id === 'homeScreen') ? '' : 'none';
+    const heroBanner = document.querySelector('.integrated-hero');
+    const headerBar = document.querySelector('.faq-header');
+    const phoneWrap = document.querySelector('.phone');
+    if(heroBanner) heroBanner.style.display = (id === 'homeScreen') ? '' : 'none';
+    if(headerBar) headerBar.style.setProperty('display', (id === 'homeScreen') ? 'flex' : 'none', 'important');
+    if(phoneWrap) phoneWrap.style.paddingTop = (id === 'homeScreen') ? phoneWrap.dataset.headerOffset || '' : '0px';
     const activeScreen = document.getElementById(id);
     requestAnimationFrame(()=>{
       if(!activeScreen) return;
@@ -10978,6 +10984,9 @@ html,body{margin:0!important;padding:0!important;}
 #d2Homepage .d2-footer-contact .contact-icon svg{width:19px;height:19px}
 #d2Homepage .d2-footer-contact a,#d2Homepage .d2-address{gap:9px}
 </style>
+<style id="d2-force-visible-overflow">
+html,body{overflow-y:visible!important;}
+</style>
 <style id="d2-nav-menu-toggle-styles">
 .faq-header-nav.d2-menu-open{
   display:flex!important;
@@ -11004,7 +11013,7 @@ html,body{margin:0!important;padding:0!important;}
   text-decoration:none!important;
 }
 .faq-header-nav.d2-menu-open a:active{background:#F5F7FA!important;}
-.faq-header{position:relative!important;}
+.faq-header{position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;max-width:430px!important;margin:0 auto!important;z-index:200!important;}
 </style>
 <script id="d2-nav-menu-toggle-script">
 (function(){
@@ -11033,10 +11042,22 @@ html,body{margin:0!important;padding:0!important;}
       }
     });
   }
+  function initHeaderOffset(){
+    var header = document.querySelector('.faq-header');
+    var phone = document.querySelector('.phone');
+    if(!header || !phone) return;
+    function apply(){
+      phone.style.paddingTop = header.offsetHeight + 'px';
+      phone.dataset.headerOffset = header.offsetHeight + 'px';
+    }
+    apply();
+    window.addEventListener('resize', apply);
+  }
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initMenu);
+    document.addEventListener('DOMContentLoaded', function(){ initMenu(); initHeaderOffset(); });
   } else {
     initMenu();
+    initHeaderOffset();
   }
 })();
 </script>
