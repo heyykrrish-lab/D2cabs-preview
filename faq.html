@@ -3,7 +3,7 @@
 <style>
 :root{--brand:#123A5C;--brand-dark:#0B2A44;--muted:#5B7285;--light-blue:#DCEEFB;--field-bg:#F5F7FA;--field-border:#E4E9EF}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;width:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:var(--brand);background:#fff}
+html,body{margin:0;padding:0;width:100%;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;color:var(--brand);background:#fff;overscroll-behavior-y:none}
 .faq-page{width:100%;overflow:hidden}
 .header{width:100%!important;margin:0!important}
 .faq-hero{min-height:255px;padding:28px 18px;display:flex;align-items:flex-end;position:relative;overflow:hidden;color:#fff;background-image:linear-gradient(rgba(11,42,68,.64),rgba(11,42,68,.72)),url("images/img_008.jpg");background-size:cover;background-position:center 38%;background-repeat:no-repeat;}
@@ -1782,7 +1782,7 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 }
 .faq-header-nav.d2-menu-open a:active{background:#F5F7FA!important;}
 .faq-header{position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;max-width:430px!important;margin:0 auto!important;z-index:200!important;}
-.phone{padding-top:64px!important;}
+.faq-page{padding-top:64px!important;}
 </style>
 <script id="d2-nav-menu-toggle-script">
 (function(){
@@ -1813,10 +1813,10 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
   }
   function initHeaderOffset(){
     var header = document.querySelector('.faq-header');
-    var phone = document.querySelector('.phone');
-    if(!header || !phone) return;
+    var wrap = document.querySelector('.faq-page');
+    if(!header || !wrap) return;
     function apply(){
-      phone.style.paddingTop = header.offsetHeight + 'px';
+      wrap.style.paddingTop = header.offsetHeight + 'px';
     }
     apply();
     window.addEventListener('resize', apply);
@@ -1827,6 +1827,34 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
     initMenu();
     initHeaderOffset();
   }
+})();
+</script>
+<style id="d2-header-autohide-style">
+.faq-header{transition:transform .28s ease!important;}
+.faq-header.d2-header-hidden{transform:translateY(-100%)!important;}
+</style>
+<script id="d2-header-autohide-script">
+(function(){
+  var header=document.querySelector('.faq-header');
+  if(!header) return;
+  var lastY=window.scrollY||window.pageYOffset||0;
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY||window.pageYOffset||0;
+    if(y>lastY && y>80){
+      header.classList.add('d2-header-hidden');
+    }else if(y<lastY){
+      header.classList.remove('d2-header-hidden');
+    }
+    lastY=y<0?0:y;
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      window.requestAnimationFrame(onScroll);
+      ticking=true;
+    }
+  },{passive:true});
 })();
 </script>
 

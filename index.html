@@ -20,7 +20,7 @@
     --light-blue:#DCEEFB;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overscroll-behavior-y:none;}
   body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -2424,8 +2424,8 @@ body{display:block!important;padding:12px 0 24px!important;}
 .phone{display:block!important;width:min(100%,430px)!important;max-width:430px!important;margin:0 auto!important;padding:0!important;position:relative;left:auto!important;right:auto!important;transform:none!important;}
 .phone>.card{width:auto!important;max-width:none!important;margin-left:10px!important;margin-right:10px!important;}
 @media(min-width:521px){
-  html{overflow-y:auto;overscroll-behavior-y:auto;}
-  body{min-height:100vh;overflow-y:auto;overscroll-behavior-y:auto;}
+  html{overflow-y:auto;overscroll-behavior-y:none;}
+  body{min-height:100vh;overflow-y:auto;overscroll-behavior-y:none;}
 }
 @media(max-width:520px){
   body{padding-left:0!important;padding-right:0!important;}
@@ -8825,7 +8825,7 @@ html,body{margin:0!important;padding:0!important;}
 </div>
 <div class="d2-footer-rights" style="margin-bottom:14px"><a href="faq.html" style="color:#bfd0dc;text-decoration:underline;margin-right:18px">FAQ</a><a href="contact.html" style="color:#bfd0dc;text-decoration:underline">Contact Us</a></div>
 <div class="d2-footer-rights">© 2025 D2cabs. All rights reserved.</div>
-</footer> <nav aria-label="Quick contact" class="d2-sticky"><a href="tel:+919993939666">Call</a><a class="wa" href="https://wa.me/919993939666" rel="noopener">WhatsApp</a><button data-service="outstation" type="button">Book Now</button></nav></main><script id="d2-testimonial-controller">(function(){
+</footer></main><script id="d2-testimonial-controller">(function(){
   function init(){return;
     var root=document.getElementById('d2Homepage');if(!root)return;
     var viewport=root.querySelector('.d2-flow-viewport');
@@ -11602,6 +11602,34 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
   window.d2FaqFilter=filterFaq;
   function init(){ filterFaq('booking'); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+<style id="d2-header-autohide-style">
+.faq-header{transition:transform .28s ease!important;}
+.faq-header.d2-header-hidden{transform:translateY(-100%)!important;}
+</style>
+<script id="d2-header-autohide-script">
+(function(){
+  var header=document.querySelector('.faq-header');
+  if(!header) return;
+  var lastY=window.scrollY||window.pageYOffset||0;
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY||window.pageYOffset||0;
+    if(y>lastY && y>80){
+      header.classList.add('d2-header-hidden');
+    }else if(y<lastY){
+      header.classList.remove('d2-header-hidden');
+    }
+    lastY=y<0?0:y;
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){
+      window.requestAnimationFrame(onScroll);
+      ticking=true;
+    }
+  },{passive:true});
 })();
 </script>
 </body>
