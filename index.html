@@ -7909,7 +7909,7 @@ html,body{margin:0!important;padding:0!important;}
 <span class="faq-header-logo">D2Cabs</span>
 <small>DRIVE TO COMFORT</small>
 </a>
-<a aria-label="Book Now" class="faq-header-cta-right" href="#homeScreen">Book</a>
+<button aria-label="Login or Sign up" class="faq-header-cta-right" id="authBtn" type="button">Login</button>
 <nav aria-label="Primary navigation" class="faq-header-nav" hidden="">
 <a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
 </nav>
@@ -11703,6 +11703,202 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
   border:1.5px solid #c7d1d9!important;
 }
 </style>
+<style id="d2-auth-styles">
+.d2-auth-overlay{position:fixed;inset:0;background:rgba(18,58,92,.55);display:none;align-items:flex-end;justify-content:center;z-index:999;backdrop-filter:blur(2px)}
+.d2-auth-overlay.open{display:flex}
+.d2-auth-card{background:#fff;width:100%;max-width:430px;border-radius:22px 22px 0 0;padding:26px 22px 30px;position:relative;box-shadow:0 -6px 30px rgba(18,58,92,.25);animation:d2AuthUp .28s ease}
+@keyframes d2AuthUp{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+.d2-auth-close{position:absolute;top:14px;right:16px;background:#F5F7FA;border:1px solid #E4E9EF;width:32px;height:32px;border-radius:10px;font-size:1.1rem;line-height:1;color:#123A5C;cursor:pointer}
+.d2-auth-title{color:#123A5C;font-size:1.15rem;font-weight:900;margin:4px 0 2px}
+.d2-auth-sub{color:#5B7285;font-size:.8rem;margin:0 0 16px}
+.d2-auth-panel input{width:100%;box-sizing:border-box;height:46px;border-radius:12px;border:1px solid #E4E9EF;background:#F5F7FA;padding:0 14px;font-size:.88rem;margin-bottom:10px;color:#123A5C}
+.d2-auth-panel input::placeholder{color:#8FA1B3}
+.d2-auth-submit{width:100%;height:46px;border:0;border-radius:12px;background:#123A5C;color:#fff;font-weight:900;font-size:.85rem;cursor:pointer;margin-top:4px}
+.d2-auth-submit:active{transform:scale(.98)}
+.d2-auth-links{display:flex;justify-content:space-between;margin-top:14px;font-size:.75rem}
+.d2-auth-links a{color:#123A5C;font-weight:700;text-decoration:none}
+.d2-auth-error{color:#C0392B;font-size:.75rem;margin-top:10px;min-height:14px}
+.d2-auth-success{color:#1E8E3E;font-size:.78rem;margin-top:10px;font-weight:700}
+.d2-auth-hint{color:#8FA1B3;font-size:.7rem;margin-top:6px}
+#d2AccountMenu{position:fixed;top:74px;right:10px;background:#fff;border:1px solid #E4E9EF;border-radius:14px;box-shadow:0 8px 24px rgba(18,58,92,.18);padding:8px;display:none;z-index:998;min-width:150px}
+#d2AccountMenu.open{display:block}
+#d2AccountMenu button{width:100%;text-align:left;background:none;border:0;padding:10px 12px;font-size:.8rem;color:#123A5C;font-weight:700;border-radius:9px;cursor:pointer}
+#d2AccountMenu button:active{background:#F5F7FA}
+</style>
+
+<div class="d2-auth-overlay" id="d2AuthOverlay">
+<div class="d2-auth-card">
+<button aria-label="Close" class="d2-auth-close" id="d2AuthClose" type="button">&times;</button>
+
+<div class="d2-auth-panel" id="d2LoginPanel">
+<h3 class="d2-auth-title">Welcome Back</h3>
+<p class="d2-auth-sub">Login to book faster with D2Cabs</p>
+<input id="loginPhone" inputmode="numeric" maxlength="10" placeholder="Phone number" type="text"/>
+<input id="loginPassword" placeholder="Password" type="password"/>
+<button class="d2-auth-submit" id="loginSubmitBtn" type="button">Login</button>
+<div class="d2-auth-links"><a id="showForgot">Forgot password?</a><a id="showSignup">Create account</a></div>
+<p class="d2-auth-error" id="loginError"></p>
+</div>
+
+<div class="d2-auth-panel" hidden id="d2SignupPanel">
+<h3 class="d2-auth-title">Create Account</h3>
+<p class="d2-auth-sub">Save your details, book rides in seconds</p>
+<input id="signupName" placeholder="Full name" type="text"/>
+<input id="signupPhone" inputmode="numeric" maxlength="10" placeholder="Phone number" type="text"/>
+<input id="signupPassword" placeholder="Create password" type="password"/>
+<button class="d2-auth-submit" id="signupSubmitBtn" type="button">Sign Up</button>
+<div class="d2-auth-links"><a id="showLoginFromSignup">Already have an account? Login</a></div>
+<p class="d2-auth-error" id="signupError"></p>
+</div>
+
+<div class="d2-auth-panel" hidden id="d2ForgotPanel">
+<h3 class="d2-auth-title">Reset Password</h3>
+<p class="d2-auth-sub" id="forgotSub">Enter your registered phone number</p>
+<input id="forgotPhone" inputmode="numeric" maxlength="10" placeholder="Phone number" type="text"/>
+<input hidden id="forgotOtp" maxlength="4" placeholder="Enter OTP" type="text"/>
+<input hidden id="forgotNewPassword" placeholder="New password" type="password"/>
+<button class="d2-auth-submit" id="forgotSubmitBtn" type="button">Send OTP</button>
+<div class="d2-auth-links"><a id="showLoginFromForgot">Back to login</a><span></span></div>
+<p class="d2-auth-error" id="forgotError"></p>
+<p class="d2-auth-hint" id="forgotHint"></p>
+</div>
+
+</div>
+</div>
+
+<div id="d2AccountMenu">
+<button id="d2LogoutBtn" type="button">Logout</button>
+</div>
+
+<script id="d2-auth-script">
+(function(){
+  var USERS_KEY='d2cabsUsers';
+  var SESSION_KEY='d2cabsLoggedInUser';
+
+  function getUsers(){ try{ return JSON.parse(localStorage.getItem(USERS_KEY))||[]; }catch(e){ return []; } }
+  function saveUsers(u){ localStorage.setItem(USERS_KEY, JSON.stringify(u)); }
+  function getSession(){ return localStorage.getItem(SESSION_KEY); }
+  function setSession(phone){ localStorage.setItem(SESSION_KEY, phone); }
+  function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+
+  var overlay=document.getElementById('d2AuthOverlay');
+  var authBtn=document.getElementById('authBtn');
+  var accountMenu=document.getElementById('d2AccountMenu');
+
+  function openModal(panel){
+    document.getElementById('d2LoginPanel').hidden=true;
+    document.getElementById('d2SignupPanel').hidden=true;
+    document.getElementById('d2ForgotPanel').hidden=true;
+    document.getElementById(panel).hidden=false;
+    overlay.classList.add('open');
+  }
+  function closeModal(){ overlay.classList.remove('open'); }
+
+  function refreshHeader(){
+    var session=getSession();
+    if(session){
+      var users=getUsers();
+      var user=users.find(function(u){return u.phone===session;});
+      authBtn.textContent = user ? user.name.split(' ')[0] : 'Account';
+    } else {
+      authBtn.textContent='Login';
+    }
+  }
+
+  authBtn.addEventListener('click', function(){
+    if(getSession()){
+      accountMenu.classList.toggle('open');
+    } else {
+      openModal('d2LoginPanel');
+    }
+  });
+
+  document.getElementById('d2AuthClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) closeModal(); });
+
+  document.getElementById('showSignup').addEventListener('click', function(){ openModal('d2SignupPanel'); });
+  document.getElementById('showLoginFromSignup').addEventListener('click', function(){ openModal('d2LoginPanel'); });
+  document.getElementById('showForgot').addEventListener('click', function(){ openModal('d2ForgotPanel'); });
+  document.getElementById('showLoginFromForgot').addEventListener('click', function(){ openModal('d2LoginPanel'); });
+
+  document.getElementById('signupSubmitBtn').addEventListener('click', function(){
+    var name=document.getElementById('signupName').value.trim();
+    var phone=document.getElementById('signupPhone').value.trim();
+    var pass=document.getElementById('signupPassword').value;
+    var err=document.getElementById('signupError');
+    err.textContent='';
+    if(!name||!phone||!pass){ err.textContent='Please fill all fields.'; return; }
+    if(phone.length<10){ err.textContent='Enter a valid 10-digit phone number.'; return; }
+    var users=getUsers();
+    if(users.find(function(u){return u.phone===phone;})){ err.textContent='Account already exists. Please login.'; return; }
+    users.push({name:name, phone:phone, password:pass});
+    saveUsers(users);
+    setSession(phone);
+    refreshHeader();
+    closeModal();
+  });
+
+  document.getElementById('loginSubmitBtn').addEventListener('click', function(){
+    var phone=document.getElementById('loginPhone').value.trim();
+    var pass=document.getElementById('loginPassword').value;
+    var err=document.getElementById('loginError');
+    err.textContent='';
+    var users=getUsers();
+    var user=users.find(function(u){return u.phone===phone;});
+    if(!user){ err.textContent='No account found with this number.'; return; }
+    if(user.password!==pass){ err.textContent='Incorrect password.'; return; }
+    setSession(phone);
+    refreshHeader();
+    closeModal();
+  });
+
+  var otpStage=false;
+  document.getElementById('forgotSubmitBtn').addEventListener('click', function(){
+    var phone=document.getElementById('forgotPhone').value.trim();
+    var err=document.getElementById('forgotError');
+    var hint=document.getElementById('forgotHint');
+    err.textContent='';
+    var users=getUsers();
+    var user=users.find(function(u){return u.phone===phone;});
+    if(!otpStage){
+      if(!user){ err.textContent='No account found with this number.'; return; }
+      otpStage=true;
+      document.getElementById('forgotOtp').hidden=false;
+      document.getElementById('forgotNewPassword').hidden=false;
+      document.getElementById('forgotSubmitBtn').textContent='Reset Password';
+      document.getElementById('forgotSub').textContent='Enter the OTP sent to your phone';
+      hint.textContent='Demo mode: use OTP 1234 (in production this is sent via SMS).';
+    } else {
+      var otp=document.getElementById('forgotOtp').value.trim();
+      var newPass=document.getElementById('forgotNewPassword').value;
+      if(otp!=='1234'){ err.textContent='Incorrect OTP.'; return; }
+      if(!newPass){ err.textContent='Enter a new password.'; return; }
+      user.password=newPass;
+      saveUsers(users);
+      otpStage=false;
+      document.getElementById('forgotOtp').hidden=true;
+      document.getElementById('forgotNewPassword').hidden=true;
+      document.getElementById('forgotSubmitBtn').textContent='Send OTP';
+      document.getElementById('forgotSub').textContent='Password reset! Please login.';
+      hint.textContent='';
+      openModal('d2LoginPanel');
+    }
+  });
+
+  document.getElementById('d2LogoutBtn').addEventListener('click', function(){
+    clearSession();
+    accountMenu.classList.remove('open');
+    refreshHeader();
+  });
+
+  document.addEventListener('click', function(e){
+    if(!accountMenu.contains(e.target) && e.target!==authBtn){ accountMenu.classList.remove('open'); }
+  });
+
+  refreshHeader();
+})();
+</script>
+
 </body>
 <style id="d2-footer-logo-final">
 #d2Homepage .d2-footer-logo-mark{display:block;width:78px;height:auto;margin:0 auto 10px;object-fit:contain}
