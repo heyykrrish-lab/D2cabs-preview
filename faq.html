@@ -778,7 +778,7 @@ html,body{margin:0!important;padding:0!important;}
 <style id="faq-header-remove-top-gap-final">
 html,body{margin:0!important;padding:0!important;}
 .faq-page{margin:0!important;padding:0!important;}
-.faq-header{margin-top:-140px!important;}
+.faq-header{margin:0!important;padding:0 18px!important;top:0!important;transform:none!important;}
 </style>
 <style id="faq-header-inline-nav-final">
 /* Use the existing grey header area itself as the complete navigation bar. */
@@ -1039,7 +1039,248 @@ html,body{margin:0!important;padding:0!important;}
 .need-help-icon{border-width:3px!important;}
 @media(max-width:380px){.need-help-icon{border-width:3px!important;}}
 </style>
-</head><body>
+<style id="newsletter-compact-vertical">.newsletter-form input,.newsletter-form button{height:40px!important;padding-top:4px!important;padding-bottom:4px!important;box-sizing:border-box!important;}.newsletter-form button{padding-left:10px!important;padding-right:10px!important;min-width:0!important;}</style>
+<style id="newsletter-centered-final">
+.newsletter-section{display:flex!important;flex-direction:column!important;justify-content:center!important;box-sizing:border-box!important;}
+.newsletter-section .newsletter-form{margin-top:0!important;margin-bottom:0!important;gap:7px!important;}
+.newsletter-section > *{margin-top:0!important;margin-bottom:0!important;}
+.newsletter-section > h2{margin-bottom:10px!important;}
+.newsletter-section > p{margin-bottom:14px!important;}
+</style>
+<style id="newsletter-section">
+.newsletter-section{
+  margin:26px 21px 0!important;
+  padding:22px 16px 20px!important;
+  background:linear-gradient(180deg,#123f60 0%,#0f3552 100%)!important;
+  border-radius:18px!important;
+  box-sizing:border-box!important;
+  text-align:center!important;
+  box-shadow:0 3px 10px rgba(18,58,92,.10)!important;
+}
+.newsletter-section h2{
+  margin:0 0 7px!important;
+  color:#fff!important;
+  font-size:1.22rem!important;
+  line-height:1.2!important;
+  font-weight:800!important;
+}
+.newsletter-section p{
+  margin:0 auto 15px!important;
+  color:#dce8f1!important;
+  font-size:.78rem!important;
+  line-height:1.35!important;
+  font-weight:600!important;
+  max-width:330px!important;
+}
+.newsletter-form{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:10px!important;
+  width:100%!important;
+}
+.newsletter-form input{
+  width:100%!important;
+  height:52px!important;
+  box-sizing:border-box!important;
+  border:1px solid #dbe5ec!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  color:#123a5c!important;
+  padding:0 15px!important;
+  font-size:.88rem!important;
+  font-weight:600!important;
+  outline:none!important;
+}
+.newsletter-form input::placeholder{color:#8fa2b2!important;opacity:1!important;}
+.newsletter-form button{
+  width:100%!important;
+  height:52px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  color:#123a5c!important;
+  font-size:.92rem!important;
+  font-weight:800!important;
+  cursor:pointer!important;
+}
+@media(max-width:380px){
+  .newsletter-section{margin-left:21px!important;margin-right:21px!important;padding:20px 14px 18px!important;}
+  .newsletter-section h2{font-size:1.15rem!important;}
+  .newsletter-section p{font-size:.74rem!important;}
+}
+</style>
+<style id="map-newsletter-match-still-question-width">
+.find-us-section{width:calc(100% - 42px)!important;margin-left:21px!important;margin-right:21px!important;}
+.newsletter-section{margin-left:21px!important;margin-right:21px!important;}
+@media(max-width:380px){
+  .find-us-section{width:calc(100% - 42px)!important;margin-left:21px!important;margin-right:21px!important;}
+  .newsletter-section{margin-left:21px!important;margin-right:21px!important;}
+}
+</style>
+<style id="newsletter-final-inline-layout">
+/* Final newsletter layout: same side gaps as the Still Have a Question card. */
+.newsletter-section{
+  width:calc(100% - 30px)!important;
+  margin:28px 15px 0!important;
+  padding:22px 16px 20px!important;
+  box-sizing:border-box!important;
+}
+.newsletter-form{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:10px!important;
+  width:100%!important;
+}
+.newsletter-form input{
+  width:100%!important;
+  height:52px!important;
+  min-width:0!important;
+  margin:0!important;
+}
+.newsletter-form button{
+  width:auto!important;
+  min-width:132px!important;
+  height:52px!important;
+  margin:0!important;
+  padding:0 18px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:#FBBB18!important;
+  color:#123A5C!important;
+  font-size:.92rem!important;
+  font-weight:800!important;
+  white-space:nowrap!important;
+  cursor:pointer!important;
+}
+@media(max-width:380px){
+  .newsletter-section{
+    width:calc(100% - 30px)!important;
+    margin-left:15px!important;
+    margin-right:15px!important;
+    padding:20px 14px 18px!important;
+  }
+  .newsletter-form{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:8px!important;
+  }
+  .newsletter-form input{height:50px!important;padding:0 12px!important;font-size:.78rem!important;}
+  .newsletter-form button{height:50px!important;min-width:112px!important;padding:0 12px!important;font-size:.82rem!important;}
+}
+</style>
+<style id="final-map-newsletter-curve">
+/* Final layout: map stretches edge-to-edge like newsletter; newsletter keeps section curves. */
+.find-us-section{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+.newsletter-section{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  border-radius:18px!important;
+}
+</style>
+<style id="newsletter-spacing-final-fix">
+.newsletter-section { padding-bottom: 22px !important; }
+.newsletter-section .newsletter-form { gap: 7px !important; margin-bottom: 0 !important; }
+.newsletter-section .newsletter-form input,
+.newsletter-section .newsletter-form button { margin-bottom: 0 !important; }
+</style>
+<style id="contact-map-newsletter-exact-still-question-gap">
+/* Exact screen-edge alignment with the Still Have a Question card. */
+.find-us-section,
+.newsletter-section{
+  width:calc(100% - 30px)!important;
+  margin-left:15px!important;
+  margin-right:15px!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:380px){
+  .find-us-section,
+  .newsletter-section{
+    width:calc(100% - 30px)!important;
+    margin-left:15px!important;
+    margin-right:15px!important;
+  }
+}
+</style>
+<style id="newsletter-final-full-stretch">
+/* Final: newsletter stretches fully left-to-right; button text stays Subscribe only. */
+.newsletter-section{
+  width:100%!important;
+  margin-left:0!important;
+  margin-right:0!important;
+  border-radius:0!important;
+}
+@media(max-width:380px){
+  .newsletter-section{
+    width:100%!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+}
+</style>
+<style id="final-map-newsletter-layout">
+/* FINAL OVERRIDE: map and newsletter use the same full-width treatment; newsletter keeps rounded corners. */
+.find-us-section, .newsletter-section {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+.newsletter-section {
+  border-radius: 18px !important;
+}
+</style>
+<style id="newsletter-final-input-button-balance">
+.newsletter-form{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:10px!important;width:100%!important;box-sizing:border-box!important}
+.newsletter-form input{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+.newsletter-form button{padding-left:10px!important;padding-right:10px!important;min-width:0!important;width:auto!important;white-space:nowrap!important}
+</style>
+<style id="newsletter-compact-vertical-final">
+/* FINAL: reduce only the vertical inner padding/height of newsletter email + Subscribe controls. */
+.newsletter-section .newsletter-form input[type="email"],
+.newsletter-section .newsletter-form input {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+.newsletter-section .newsletter-form button[type="submit"],
+.newsletter-section .newsletter-form button {
+  height: 40px !important;
+  min-height: 40px !important;
+  max-height: 40px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  box-sizing: border-box !important;
+  line-height: 40px !important;
+}
+</style>
+<style id="newsletter-edge-gap-final">
+/* FINAL: equal top/bottom inner spacing and slightly tighter input/button gap. */
+.newsletter-section{
+  padding-top:20px!important;
+  padding-bottom:20px!important;
+}
+.newsletter-section .newsletter-form{
+  gap:7px!important;
+}
+@media(max-width:380px){
+  .newsletter-section{
+    padding-top:18px!important;
+    padding-bottom:18px!important;
+  }
+  .newsletter-section .newsletter-form{
+    gap:7px!important;
+  }
+}
+</style></head><body>
 <div class="faq-page source-style-page">
 <header aria-label="D2Cabs header" class="faq-header">
 <button aria-expanded="false" aria-label="Open menu" class="faq-header-menu" type="button">
@@ -1099,7 +1340,7 @@ html,body{margin:0!important;padding:0!important;}
 <details data-cat="payment"><summary>What if I am charged the wrong amount?</summary><p>Contact D2cabs support with your booking and payment details so the amount can be reviewed.</p></details>
 <details data-cat="payment"><summary>Are cancellation charges applicable?</summary><p>Cancellation charges, if any, depend on the booking terms applicable to your ride.</p></details>
 <details data-cat="payment"><summary>How can I ask about a refund?</summary><p>Contact D2cabs support with your booking details and we will guide you through the applicable refund process.</p></details>
-</div></section> <section aria-labelledby="needHelpTitle" class="need-help-section"><h2 class="d2-heading need-help-heading" id="needHelpTitle"><span>Get In Touch?</span></h2><p class="need-help-subheading">We are here to help with your ride, booking or payment.</p><div class="need-help-cards"><a class="need-help-card" href="tel:+918889633535"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"></path></svg></div><strong>Call Us</strong><small>+91 88896 33535</small><b>Call Now</b></a><a class="need-help-card" href="https://wa.me/918889633535" rel="noopener"><div class="need-help-icon"><svg class="need-help-whatsapp-svg" aria-hidden="true" viewBox="0 0 16 16"><path fill="#fff" d="M13.6 2.3A7.9 7.9 0 0 0 8 0C3.6 0 0 3.6 0 8c0 1.4.4 2.7 1 3.9L0 16l4.2-1.1c1.2.7 2.5 1 3.8 1 4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6ZM8 14.6c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.1-.2C1.8 10.6 1.4 9.3 1.4 8 1.4 4.4 4.4 1.4 8 1.4s6.6 3 6.6 6.6-3 6.6-6.6 6.6Zm3.6-4.9c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.4.1-.1.2-.5.7-.6.8-.1.1-.2.2-.4.1-.2-.1-.8-.3-1.5-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4l.3-.4c.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.4-1-.6-1.4-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.7 1.9.8 2c.1.1 1.4 2.2 3.5 3.1.5.2.9.4 1.2.5.5.2.9.2 1.2.1.4-.1 1.2-.5 1.4-.9.2-.4.2-.8.1-.9-.1-.1-.2-.1-.4-.2Z"/></svg></div><strong>WhatsApp</strong><small>+91 88896 33535</small><b>Message Us</b></a><a class="need-help-card" href="https://www.google.com/maps/search/?api=1&amp;query=101%20H.S%20Tower%20MR9%20Indore" rel="noopener" target="_blank"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg></div><strong>Address</strong><small>101 H.S Tower MR9 Indore</small><b>View Location</b></a><a class="need-help-card" href="mailto:d2cabs@gmail.com"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg></div><strong>Email Us</strong><small>d2cabs@gmail.com</small><b>Email Now</b></a></div></section>
+</div></section> <section aria-labelledby="needHelpTitle" class="need-help-section"><h2 class="d2-heading need-help-heading" id="needHelpTitle"><span>Get In Touch?</span></h2><p class="need-help-subheading">We are here to help with your ride, booking or payment.</p><div class="need-help-cards"><a class="need-help-card" href="tel:+918889633535"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"></path></svg></div><strong>Call Us</strong><small>+91 88896 33535</small><b>Call Now</b></a><a class="need-help-card" href="https://wa.me/918889633535" rel="noopener"><div class="need-help-icon"><svg class="need-help-whatsapp-svg" aria-hidden="true" viewBox="0 0 16 16"><path fill="#fff" d="M13.6 2.3A7.9 7.9 0 0 0 8 0C3.6 0 0 3.6 0 8c0 1.4.4 2.7 1 3.9L0 16l4.2-1.1c1.2.7 2.5 1 3.8 1 4.4 0 8-3.6 8-8 0-2.1-.8-4.1-2.4-5.6ZM8 14.6c-1.2 0-2.4-.3-3.4-.9l-.2-.1-2.5.7.7-2.4-.1-.2C1.8 10.6 1.4 9.3 1.4 8 1.4 4.4 4.4 1.4 8 1.4s6.6 3 6.6 6.6-3 6.6-6.6 6.6Zm3.6-4.9c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.4.1-.1.2-.5.7-.6.8-.1.1-.2.2-.4.1-.2-.1-.8-.3-1.5-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.4l.3-.4c.1-.1.1-.2.2-.3.1-.1 0-.2 0-.3 0-.1-.4-1-.6-1.4-.2-.4-.3-.3-.4-.3h-.3c-.1 0-.3 0-.5.2-.2.2-.7.7-.7 1.7s.7 1.9.8 2c.1.1 1.4 2.2 3.5 3.1.5.2.9.4 1.2.5.5.2.9.2 1.2.1.4-.1 1.2-.5 1.4-.9.2-.4.2-.8.1-.9-.1-.1-.2-.1-.4-.2Z"/></svg></div><strong>WhatsApp</strong><small>+91 88896 33535</small><b>Message Us</b></a><a class="need-help-card" href="https://www.google.com/maps/search/?api=1&amp;query=22.741583,75.900139" rel="noopener" target="_blank"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 21s7-6.1 7-12A7 7 0 0 0 5 9c0 5.9 7 12 7 12Z"></path><circle cx="12" cy="9" r="2.4"></circle></svg></div><strong>Address</strong><small>101 H.S Tower MR9 Indore</small><b>View Location</b></a><a class="need-help-card" href="mailto:d2cabs@gmail.com"><div class="need-help-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg></div><strong>Email Us</strong><small>d2cabs@gmail.com</small><b>Email Now</b></a></div></section>
 <section aria-labelledby="askQuestionTitle" class="ask-question-section still-question-section">
 <div class="ask-question-card">
 <h2 class="d2-heading ask-question-heading" id="askQuestionTitle"><span>Still have a question?</span></h2>
@@ -1113,7 +1354,14 @@ html,body{margin:0!important;padding:0!important;}
 </form>
 </div>
 </section>
-<section class="d2-section d2-final"><h3>Ready for your next ride?</h3><p>Tell us where you are going and we will help you find the right cab.</p><button data-service="outstation" type="button">Book Your Cab</button></section></main>
+<section class="newsletter-section" aria-labelledby="newsletterTitle">
+  <h2 id="newsletterTitle">Subscribe to Our Newsletter</h2>
+  <p>Stay updated with D2Cabs news, offers and updates.</p>
+  <form class="newsletter-form" onsubmit="event.preventDefault(); var email=this.querySelector('input').value.trim(); if(!email) return; window.location.href='mailto:d2cabs@gmail.com?subject=Newsletter Subscription&body=Please subscribe this email to the D2Cabs newsletter: '+encodeURIComponent(email);">
+    <input type="email" aria-label="Email address" placeholder="Enter your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section></main>
 <footer class="d2-footer">
 <img alt="D2cabs logo" class="d2-footer-logo-mark" src="images/img_053.png"/>
 <div class="d2-footer-brand">D2cabs</div>
@@ -1183,10 +1431,9 @@ document.getElementById('askQuestionForm')?.addEventListener('submit',function(e
 }
 </style>
 <style id="faq-final-user-last-fix">
-/* Only the requested final polish: slightly more row breathing room, exact page background in header, and slightly larger accordion typography. */
+/* Header restored to normal opaque background (not transparent/floating). */
 .faq-header{
-  background:transparent!important;
-  background-image:none!important;
+  background:#f6f6f5!important;
 }
 .d2-faq details summary{
   padding-top:12px!important;
