@@ -1877,6 +1877,13 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 #d2Homepage .d2-faq details[data-cat="payment"] + details[data-cat="payment"]{
   border-top:1px solid #dbe5ec!important;
 }
+#d2Homepage .d2-faq details:first-child,
+#d2Homepage .d2-faq details:nth-child(9),
+#d2Homepage .d2-faq details:nth-child(17),
+#d2Homepage .d2-faq details:nth-child(25){
+  border-top:0!important;
+  box-shadow:none!important;
+}
 #d2Homepage .d2-faq summary{
   position:relative!important;
   background:transparent!important;
@@ -1890,8 +1897,9 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 }
 #d2Homepage .d2-faq details p{
   font-size:.77rem!important;
-  margin:-2px 16px 16px!important;
-  padding-top:7px!important;
+  font-weight:700!important;
+  margin:-6px 16px 16px!important;
+  padding-top:2px!important;
   color:#647b8d!important;
   line-height:1.55!important;
   border-top:0!important;
