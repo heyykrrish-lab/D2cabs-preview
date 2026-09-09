@@ -1302,10 +1302,10 @@ html,body{margin:0!important;padding:0!important;}
 </section>
 <main id="d2Homepage"><section aria-labelledby="faqHeading" class="d2-section"><h2 class="d2-heading" id="faqHeading"><span>Frequently Asked Questions</span></h2>
 <div aria-label="FAQ categories" class="faq-category-strip" role="tablist">
-<button aria-selected="true" class="faq-cat active" data-filter="booking" role="tab" type="button"booking')" onclick="window.d2FaqFilter && window.d2FaqFilter('booking')">Booking</button>
-<button aria-selected="false" class="faq-cat" data-filter="service" role="tab" type="button"service')" onclick="window.d2FaqFilter && window.d2FaqFilter('service')">Services</button>
-<button aria-selected="false" class="faq-cat" data-filter="ride" role="tab" type="button"ride')" onclick="window.d2FaqFilter && window.d2FaqFilter('ride')">Your Ride</button>
-<button aria-selected="false" class="faq-cat" data-filter="payment" role="tab" type="button"payment')" onclick="window.d2FaqFilter && window.d2FaqFilter('payment')">Payment</button>
+<button aria-selected="true" class="faq-cat active" data-filter="booking" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('booking')">Booking</button>
+<button aria-selected="false" class="faq-cat" data-filter="service" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('service')">Services</button>
+<button aria-selected="false" class="faq-cat" data-filter="ride" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('ride')">Your Ride</button>
+<button aria-selected="false" class="faq-cat" data-filter="payment" role="tab" type="button" onclick="window.d2FaqFilter && window.d2FaqFilter('payment')">Payment</button>
 </div>
 <div class="d2-panel d2-faq">
 <details data-cat="service"><summary>What cab services does D2cabs offer?</summary><p>D2cabs provides convenient cab services for local rides, airport transfers and outstation travel.</p></details>
@@ -1858,6 +1858,10 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 })();
 </script>
 
+<style id="faq-toggle-icon-invert-final">
+.d2-faq details summary::after{background:#edf4f8!important;color:#123A5C!important;}
+.d2-faq details[open] summary::after{background:#123A5C!important;color:#edf4f8!important;}
+</style>
 </body>
 <style id="get-in-touch-card-final-spacing-gradient">
 .need-help-card{
