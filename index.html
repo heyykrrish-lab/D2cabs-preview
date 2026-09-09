@@ -7636,9 +7636,25 @@ html,body{margin:0!important;padding:0!important;}
 }
 .d2-booking-stage.d2-non-home::before,
 .d2-booking-stage.d2-non-home::after{display:none!important;}
-.d2-booking-stage.d2-non-home > .card{
+.phone.d2-non-home-phone > .card{
   border-radius:0!important;
   box-shadow:none!important;
+  margin:0!important;
+  width:100%!important;
+  max-width:100%!important;
+}
+.phone.d2-non-home-phone{
+  padding-left:0!important;
+  padding-right:0!important;
+}
+.phone.d2-non-home-phone #resultsScreen,
+.phone.d2-non-home-phone #confirmScreen,
+.phone.d2-non-home-phone #paymentScreen,
+.phone.d2-non-home-phone #checkoutScreen,
+.phone.d2-non-home-phone #confirmationScreen,
+.phone.d2-non-home-phone #pendingApprovalScreen{
+  padding-left:15px!important;
+  padding-right:15px!important;
 }
 </style>
 <style id="newsletter-compact-vertical">.newsletter-form input,.newsletter-form button{height:40px!important;padding-top:4px!important;padding-bottom:4px!important;box-sizing:border-box!important;}.newsletter-form button{padding-left:10px!important;padding-right:10px!important;min-width:0!important;}</style>
@@ -9715,6 +9731,7 @@ html,body{margin:0!important;padding:0!important;}
     const phoneWrap = document.querySelector('.phone');
     const bookingStage = document.querySelector('.d2-booking-stage');
     if(bookingStage) bookingStage.classList.toggle('d2-non-home', id !== 'homeScreen');
+    if(phoneWrap) phoneWrap.classList.toggle('d2-non-home-phone', id !== 'homeScreen');
     if(heroBanner) heroBanner.style.display = (id === 'homeScreen') ? '' : 'none';
     if(headerBar) headerBar.style.setProperty('display', (id === 'homeScreen') ? 'flex' : 'none', 'important');
     if(phoneWrap) phoneWrap.style.paddingTop = (id === 'homeScreen') ? phoneWrap.dataset.headerOffset || '' : '0px';
@@ -11491,6 +11508,7 @@ html,body{overflow-y:visible!important;}
 }
 .faq-header-nav.d2-menu-open a:active{background:#F5F7FA!important;}
 .faq-header{position:fixed!important;top:0!important;left:0!important;right:0!important;width:100%!important;max-width:430px!important;margin:0 auto!important;z-index:200!important;}
+.phone{padding-top:64px!important;}
 </style>
 <script id="d2-nav-menu-toggle-script">
 (function(){
