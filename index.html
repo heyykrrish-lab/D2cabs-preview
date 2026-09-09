@@ -11642,18 +11642,19 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 }
 #d2Homepage .d2-faq details{
   background:linear-gradient(180deg,#ffffff 0%,#fbfdfe 100%)!important;
-}
-#d2Homepage .d2-faq details + details{
-  border-top:1px solid #dbe5ec!important;
-}
-#d2Homepage .d2-faq details:first-child{
   border-top:0!important;
   box-shadow:none!important;
+}
+#d2Homepage .d2-faq details[data-cat="booking"] + details[data-cat="booking"],
+#d2Homepage .d2-faq details[data-cat="service"] + details[data-cat="service"],
+#d2Homepage .d2-faq details[data-cat="ride"] + details[data-cat="ride"],
+#d2Homepage .d2-faq details[data-cat="payment"] + details[data-cat="payment"]{
+  border-top:1px solid #dbe5ec!important;
 }
 #d2Homepage .d2-faq summary{
   position:relative!important;
   background:transparent!important;
-  padding:16px 66px 16px 16px!important;
+  padding:16px 60px 16px 16px!important;
   font-size:.86rem!important;
   font-weight:800!important;
 }
@@ -11675,12 +11676,12 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
   right:16px!important;
   top:50%!important;
   transform:translateY(-50%)!important;
-  width:32px!important;
-  height:32px!important;
+  width:26px!important;
+  height:26px!important;
   border-radius:50%!important;
   display:grid!important;
   place-items:center!important;
-  font-size:21px!important;
+  font-size:16px!important;
   line-height:1!important;
   box-shadow:none!important;
   border:1.5px solid transparent!important;
