@@ -1858,9 +1858,67 @@ document.addEventListener('DOMContentLoaded',function(){d2FaqFilter('booking');}
 })();
 </script>
 
-<style id="faq-toggle-icon-invert-final">
-.d2-faq details summary::after{background:#edf4f8!important;color:#123A5C!important;}
-.d2-faq details[open] summary::after{background:#123A5C!important;color:#edf4f8!important;}
+<style id="faq-section-unify-final">
+#d2Homepage .d2-faq{
+  background:linear-gradient(180deg,#ffffff 0%,#f8fbfd 100%)!important;
+  border:1px solid #d7e2ea!important;
+  border-radius:18px!important;
+  box-shadow:0 14px 30px rgba(18,58,92,.13),0 3px 8px rgba(18,58,92,.06)!important;
+  overflow:hidden!important;
+}
+#d2Homepage .d2-faq details{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfdfe 100%)!important;
+}
+#d2Homepage .d2-faq details + details{
+  border-top:1px solid #dbe5ec!important;
+}
+#d2Homepage .d2-faq details:first-child{
+  border-top:0!important;
+  box-shadow:none!important;
+}
+#d2Homepage .d2-faq summary{
+  position:relative!important;
+  background:transparent!important;
+  padding:16px 66px 16px 16px!important;
+  font-size:.86rem!important;
+  font-weight:800!important;
+}
+#d2Homepage .d2-faq details[open] summary{
+  padding-top:16px!important;
+  padding-bottom:16px!important;
+}
+#d2Homepage .d2-faq details p{
+  font-size:.77rem!important;
+  margin:-2px 16px 16px!important;
+  padding-top:7px!important;
+  color:#647b8d!important;
+  line-height:1.55!important;
+  border-top:0!important;
+}
+#d2Homepage .d2-faq details summary::after{
+  content:"+";
+  position:absolute!important;
+  right:16px!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  width:32px!important;
+  height:32px!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  font-size:21px!important;
+  line-height:1!important;
+  box-shadow:none!important;
+  border:1.5px solid transparent!important;
+  background:#123A5C!important;
+  color:#edf4f8!important;
+}
+#d2Homepage .d2-faq details[open] summary::after{
+  content:"−";
+  background:#edf4f8!important;
+  color:#123A5C!important;
+  border:1.5px solid #c7d1d9!important;
+}
 </style>
 </body>
 <style id="get-in-touch-card-final-spacing-gradient">
